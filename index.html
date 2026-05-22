@@ -21,12 +21,11 @@ body{
     justify-content:center;
     align-items:center;
     overflow:hidden;
-    background:
-    radial-gradient(circle at top left,#1e1e1e,#050505 70%);
+    background: radial-gradient(circle at top left,#1e1e1e,#050505 70%);
     position:relative;
 }
 
-/* Arka plan efektleri */
+/* Arka plan glow */
 
 body::before{
     content:"";
@@ -52,7 +51,7 @@ body::after{
     right:-150px;
 }
 
-/* Container */
+/* ANA ALAN */
 
 .container{
     position:relative;
@@ -63,236 +62,94 @@ body::after{
     gap:18px;
 }
 
-/* Profil resmi */
-
-.profile-img{
-    width:120px;
-    height:120px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:3px solid rgba(255,255,255,0.15);
-
-    box-shadow:
-    0 0 30px rgba(0,140,255,0.35);
-
-    animation:float 4s ease-in-out infinite;
-}
-
-/* İsim */
+/* BAŞLIK */
 
 .name{
     color:white;
-
     font-size:32px;
-
     letter-spacing:3px;
-
     text-align:center;
-
-    text-shadow:
-    0 0 20px rgba(0,140,255,0.4);
 }
-
-/* Bio */
 
 .bio{
     color:#bdbdbd;
-
-    letter-spacing:2px;
-
     margin-top:-10px;
-
-    margin-bottom:10px;
 }
 
-/* Link butonları */
+/* LINK BUTON */
 
 .link-btn{
     width:320px;
-
     padding:18px;
-
     border-radius:18px;
-
     background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(12px);
-
     color:white;
-
-    font-size:18px;
-
-    letter-spacing:1px;
-
     text-decoration:none;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     transition:0.25s;
-
-    box-shadow:0 0 12px rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
 }
 
 .link-btn:hover{
     transform:scale(1.05);
-
     background:rgba(255,255,255,0.14);
-
-    box-shadow:
-    0 0 25px rgba(0,140,255,0.35);
 }
 
-/* Hakkımda butonu */
+/* HAKKIMDA BUTON */
 
 .about-btn{
     position:absolute;
-
     top:20px;
     left:20px;
-
     padding:12px 18px;
-
     border:none;
-
     border-radius:14px;
-
     background:rgba(255,255,255,0.08);
-
     color:white;
-
-    backdrop-filter:blur(10px);
-
     cursor:pointer;
-
-    transition:0.25s;
-
     z-index:5;
 }
 
 .about-btn:hover{
-    transform:scale(1.08);
-
     background:rgba(255,255,255,0.14);
 }
 
-/* Popup */
+/* POPUP */
 
 .popup{
     position:absolute;
-
     top:80px;
     left:20px;
-
-    width:290px;
-
+    width:280px;
     padding:22px;
-
     border-radius:20px;
-
     background:rgba(10,10,10,0.92);
-
-    backdrop-filter:blur(14px);
-
     color:white;
-
     display:none;
-
     z-index:10;
-
-    border:1px solid rgba(255,255,255,0.06);
-
-    animation:popupAnim 0.3s ease;
-}
-
-@keyframes popupAnim{
-
-    from{
-        opacity:0;
-        transform:translateY(-10px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-.popup h2{
-    margin-bottom:15px;
 }
 
 .popup p{
     margin:10px 0;
-    color:#d0d0d0;
+    color:#ccc;
 }
-
-/* Kapat */
 
 .close-btn{
     margin-top:15px;
-
     padding:8px 14px;
-
     border:none;
-
     border-radius:10px;
-
-    background:#181818;
-
+    background:#222;
     color:white;
-
     cursor:pointer;
-
-    transition:0.2s;
 }
 
-.close-btn:hover{
-    background:#262626;
-}
-
-/* Floating animasyon */
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-/* Telefon uyumu */
+/* RESPONSIVE */
 
 @media(max-width:500px){
-
-    .link-btn{
-        width:280px;
-        font-size:16px;
-    }
-
-    .popup{
-        width:240px;
-    }
-
-    .name{
-        font-size:24px;
-    }
-
+    .link-btn{ width:280px; }
 }
 
 </style>
@@ -300,76 +157,44 @@ body::after{
 
 <body>
 
-<!-- Hakkımda -->
+<!-- HAKKIMDA BUTONU -->
+<button class="about-btn" onclick="openPopup()">☰ Hakkımda</button>
 
-<button class="about-btn" onclick="openPopup()">
-☰ Hakkımda
-</button>
-
+<!-- POPUP -->
 <div class="popup" id="popup">
 
     <h2>Hakkımda</h2>
 
-    <p><strong>İsmim:</strong> Yaşar Nuh Donma</p>
+    <p><strong>İsim:</strong> Yaşar Nuh Donma</p>
+    <p><strong>Yaş:</strong> 18</p>
+    <p><strong>Doğum:</strong> 15 Ağustos 2007</p>
+    <p><strong>Boy:</strong> 190</p>
+    <p><strong>Kilo:</strong> 70</p>
 
-    <p><strong>Yaşım:</strong> 18</p>
-
-    <p><strong>Doğum Günüm:</strong> 15 Ağustos 2007</p>
-
-    <p><strong>Boyum:</strong> 190</p>
-
-    <p><strong>Kilom:</strong> 70</p>
-
-    <button class="close-btn" onclick="closePopup()">
-        Kapat
-    </button>
+    <button class="close-btn" onclick="closePopup()">Kapat</button>
 
 </div>
 
-<!-- Ana içerik -->
+<!-- ANA -->
 
 <div class="container">
 
-    <!-- FOTO -->
-    <!-- profil.jpg yerine kendi fotoğrafının adını yaz -->
+    <h1 class="name">YAŞAR NUH DONMA</h1>
+    <p class="bio">Developer • Fighter • Vision</p>
 
-    <img src="profil.jpg" class="profile-img">
-
-    <!-- İSİM -->
-
-    <h1 class="name">
-        YAŞAR NUH DONMA
-    </h1>
-
-    <!-- BIO -->
-
-    <p class="bio">
-        Developer • Fighter • Vision
-    </p>
-
-    <!-- Linkler -->
-
-    <a class="link-btn"
-    href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu"
-    target="_blank">
+    <a class="link-btn" href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu" target="_blank">
         🎵 Spotify
     </a>
 
-    <a class="link-btn"
-    href="https://www.youtube.com/@yasarnuh7571"
-    target="_blank">
-        ▶️ YouTube
+    <a class="link-btn" href="https://music.youtube.com/@yasarnuh7571" target="_blank">
+        ▶️ YouTube Music
     </a>
 
-    <a class="link-btn"
-    href="https://steamcommunity.com/profiles/76561199214229444"
-    target="_blank">
+    <a class="link-btn" href="https://steamcommunity.com/profiles/76561199214229444" target="_blank">
         🎮 Steam
     </a>
 
-    <a class="link-btn"
-    href="https://x.com/donma_nuh20630"
-    target="_blank">
+    <a class="link-btn" href="https://x.com/donma_nuh20630" target="_blank">
         🐦 Twitter
     </a>
 
