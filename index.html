@@ -1,1 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Yaşar Nuh Donma</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top left,#1e1e1e,#050505 70%);
+    position:relative;
+}
+
+/* Arka plan efektleri */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(0,140,255,0.12);
+    border-radius:50%;
+    filter:blur(120px);
+    top:-150px;
+    left:-150px;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:rgba(255,255,255,0.04);
+    border-radius:50%;
+    filter:blur(120px);
+    bottom:-150px;
+    right:-150px;
+}
+
+/* Link alanı */
+
+.container{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* Link butonları */
+
+.link-btn{
+    width:320px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+
+    color:white;
+    font-size:18px;
+    letter-spacing:1px;
+
+    text-decoration:none;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:0.25s;
+    box-shadow:0 0 12px rgba(255,255,255,0.05);
+}
+
+.link-btn:hover{
+    transform:scale(1.05);
+    background:rgba(255,255,255,0.14);
+    box-shadow:0 0 25px rgba(0,140,255,0.35);
+}
+
+/* Hakkımda butonu */
+
+.about-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    padding:12px 18px;
+
+    border:none;
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    backdrop-filter:blur(10px);
+
+    cursor:pointer;
+
+    transition:0.25s;
+
+    z-index:5;
+}
+
+.about-btn:hover{
+    transform:scale(1.08);
+    background:rgba(255,255,255,0.14);
+}
+
+/* Popup */
+
+.popup{
+    position:absolute;
+
+    top:80px;
+    left:20px;
+
+    width:280px;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    background:rgba(10,10,10,0.92);
+
+    backdrop-filter:blur(14px);
+
+    color:white;
+
+    display:none;
+
+    z-index:10;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    animation:popupAnim 0.3s ease;
+}
+
+@keyframes popupAnim{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.popup h2{
+    margin-bottom:15px;
+}
+
+.popup p{
+    margin:10px 0;
+    color:#d0d0d0;
+}
+
+/* Kapat butonu */
+
+.close-btn{
+    margin-top:15px;
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#181818;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.close-btn:hover{
+    background:#262626;
+}
+
+/* Telefon uyumu */
+
+@media(max-width:500px){
+
+    .link-btn{
+        width:280px;
+        font-size:16px;
+    }
+
+    .popup{
+        width:240px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Hakkımda -->
+
+<button class="about-btn" onclick="openPopup()">
+☰ Hakkımda
+</button>
+
+<div class="popup" id="popup">
+
+    <h2>Hakkımda</h2>
+
+    <p><strong>İsmim:</strong> Yaşar Nuh Donma</p>
+
+    <p><strong>Boyum:</strong> 190</p>
+
+    <p><strong>Kilom:</strong> 70</p>
+
+    <button class="close-btn" onclick="closePopup()">
+        Kapat
+    </button>
+
+</div>
+
+<!-- Linkler -->
+
+<div class="container">
+
+    <a class="link-btn"
+    href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu"
+    target="_blank">
+        🎵 Spotify
+    </a>
+
+    <a class="link-btn"
+    href="https://music.youtube.com/@yasarnuh7571"
+    target="_blank">
+        🎵 YouTube Music
+    </a>
+
+    <a class="link-btn"
+    href="https://steamcommunity.com/profiles/76561199214229444"
+    target="_blank">
+        🎮 Steam
+    </a>
+
+    <a class="link-btn"
+    href="https://x.com/donma_nuh20630"
+    target="_blank">
+        🐦 Twitter
+    </a>
+
+</div>
+
+<script>
+
+function openPopup(){
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
