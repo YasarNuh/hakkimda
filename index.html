@@ -52,55 +52,115 @@ body::after{
     right:-150px;
 }
 
-/* Link alanı */
+/* Container */
 
 .container{
     position:relative;
     z-index:2;
     display:flex;
     flex-direction:column;
+    align-items:center;
     gap:18px;
+}
+
+/* Profil resmi */
+
+.profile-img{
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 0 30px rgba(0,140,255,0.35);
+
+    animation:float 4s ease-in-out infinite;
+}
+
+/* İsim */
+
+.name{
+    color:white;
+
+    font-size:32px;
+
+    letter-spacing:3px;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 20px rgba(0,140,255,0.4);
+}
+
+/* Bio */
+
+.bio{
+    color:#bdbdbd;
+
+    letter-spacing:2px;
+
+    margin-top:-10px;
+
+    margin-bottom:10px;
 }
 
 /* Link butonları */
 
 .link-btn{
     width:320px;
+
     padding:18px;
+
     border-radius:18px;
+
     background:rgba(255,255,255,0.08);
+
     backdrop-filter:blur(12px);
 
     color:white;
+
     font-size:18px;
+
     letter-spacing:1px;
 
     text-decoration:none;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     transition:0.25s;
+
     box-shadow:0 0 12px rgba(255,255,255,0.05);
 }
 
 .link-btn:hover{
     transform:scale(1.05);
+
     background:rgba(255,255,255,0.14);
-    box-shadow:0 0 25px rgba(0,140,255,0.35);
+
+    box-shadow:
+    0 0 25px rgba(0,140,255,0.35);
 }
 
 /* Hakkımda butonu */
 
 .about-btn{
     position:absolute;
+
     top:20px;
     left:20px;
 
     padding:12px 18px;
 
     border:none;
+
     border-radius:14px;
 
     background:rgba(255,255,255,0.08);
@@ -118,6 +178,7 @@ body::after{
 
 .about-btn:hover{
     transform:scale(1.08);
+
     background:rgba(255,255,255,0.14);
 }
 
@@ -129,7 +190,7 @@ body::after{
     top:80px;
     left:20px;
 
-    width:280px;
+    width:290px;
 
     padding:22px;
 
@@ -173,7 +234,7 @@ body::after{
     color:#d0d0d0;
 }
 
-/* Kapat butonu */
+/* Kapat */
 
 .close-btn{
     margin-top:15px;
@@ -197,6 +258,24 @@ body::after{
     background:#262626;
 }
 
+/* Floating animasyon */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
 /* Telefon uyumu */
 
 @media(max-width:500px){
@@ -208,6 +287,10 @@ body::after{
 
     .popup{
         width:240px;
+    }
+
+    .name{
+        font-size:24px;
     }
 
 }
@@ -242,11 +325,29 @@ body::after{
     </button>
 
 </div>
-</div>
 
-<!-- Linkler -->
+<!-- Ana içerik -->
 
 <div class="container">
+
+    <!-- FOTO -->
+    <!-- profil.jpg yerine kendi fotoğrafının adını yaz -->
+
+    <img src="profil.jpg" class="profile-img">
+
+    <!-- İSİM -->
+
+    <h1 class="name">
+        YAŞAR NUH DONMA
+    </h1>
+
+    <!-- BIO -->
+
+    <p class="bio">
+        Developer • Fighter • Vision
+    </p>
+
+    <!-- Linkler -->
 
     <a class="link-btn"
     href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu"
@@ -255,9 +356,9 @@ body::after{
     </a>
 
     <a class="link-btn"
-    href="https://music.youtube.com/@yasarnuh7571"
+    href="https://www.youtube.com/@yasarnuh7571"
     target="_blank">
-        🎵 YouTube Music
+        ▶️ YouTube
     </a>
 
     <a class="link-btn"
