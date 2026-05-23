@@ -62,17 +62,6 @@ body::after{
     gap:18px;
 }
 
-/* profil resim */
-
-.profile-img{
-    width:120px;
-    height:120px;
-    object-fit:cover;
-    border-radius:50%;
-    border:3px solid rgba(255,255,255,0.2);
-    box-shadow:0 0 25px rgba(0,140,255,0.4);
-}
-
 /* isim */
 
 .name{
@@ -168,7 +157,7 @@ body::after{
     background:#333;
 }
 
-/* idollerim buton */
+/* idollerim */
 
 .idol-btn{
     position:absolute;
@@ -190,8 +179,6 @@ body::after{
     transform:scale(1.05);
     background:rgba(0,140,255,0.22);
 }
-
-/* idol popup */
 
 .idol-popup{
     position:absolute;
@@ -219,6 +206,36 @@ body::after{
     line-height:1.8;
 }
 
+/* söz kutusu */
+
+.quote-box{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:260px;
+    min-height:90px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.07);
+    color:#dcdcdc;
+    backdrop-filter:blur(12px);
+    cursor:pointer;
+    z-index:5;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.quote-box:hover{
+    transform:scale(1.03);
+    background:rgba(255,255,255,0.11);
+}
+
 /* animasyon */
 
 @keyframes slideLeft{
@@ -242,12 +259,19 @@ body::after{
     .idol-popup{
         width:260px;
     }
+
+    .quote-box{
+        width:220px;
+        font-size:13px;
+    }
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- HAKKIMDA -->
 
 <button class="about-btn" onclick="openPopup()">☰ Hakkımda</button>
 
@@ -263,6 +287,12 @@ body::after{
 
     <button class="close-btn" onclick="closePopup()">Kapat</button>
 
+</div>
+
+<!-- SÖZ KUTUSU -->
+
+<div class="quote-box" onclick="changeQuote()" id="quoteBox">
+    “bazen ayrılık istenmezken kaçınılmaz hale geliyor.”
 </div>
 
 <!-- İDOLLER -->
@@ -283,6 +313,8 @@ body::after{
     <button class="close-btn" onclick="closeIdolPopup()">Kapat</button>
 
 </div>
+
+<!-- ANA İÇERİK -->
 
 <div class="container">
 
@@ -326,6 +358,34 @@ function openIdolPopup(){
 
 function closeIdolPopup(){
     document.getElementById("idolPopup").style.display = "none";
+}
+
+/* sözler */
+
+const quotes = [
+
+"bazen ayrılık istenmezken kaçınılmaz hale geliyor.",
+
+"it was all my fault.",
+
+"yapmasaydın...",
+
+"ne yapmam gerektiğini bilmiyorum.",
+
+"en büyük ceza bir şeyin anı olmasıdır.",
+
+"sahte dünya'da tek gerçek para.",
+
+"Eğer Tanrıysan ne olur yardım et."
+
+];
+
+function changeQuote(){
+
+    const random =
+    quotes[Math.floor(Math.random() * quotes.length)];
+
+    document.getElementById("quoteBox").innerText = random;
 }
 
 </script>
