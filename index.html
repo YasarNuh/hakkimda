@@ -62,6 +62,17 @@ body::after{
     gap:18px;
 }
 
+/* profil resim */
+
+.profile-img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,0.2);
+    box-shadow:0 0 25px rgba(0,140,255,0.4);
+}
+
 /* isim */
 
 .name{
@@ -157,7 +168,7 @@ body::after{
     background:#333;
 }
 
-/* idollerim */
+/* idollerim buton */
 
 .idol-btn{
     position:absolute;
@@ -179,6 +190,8 @@ body::after{
     transform:scale(1.05);
     background:rgba(0,140,255,0.22);
 }
+
+/* idol popup */
 
 .idol-popup{
     position:absolute;
@@ -206,88 +219,6 @@ body::after{
     line-height:1.8;
 }
 
-/* söz kutusu */
-
-.quote-box{
-    position:absolute;
-    top:20px;
-    right:20px;
-
-    width:90px;
-    height:45px;
-
-    border-radius:14px;
-    background:rgba(255,255,255,0.07);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,0.08);
-
-    z-index:5;
-    overflow:hidden;
-
-    transition:0.35s ease;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-/* büyüyünce */
-
-.quote-box.active{
-    width:260px;
-    height:120px;
-}
-
-/* söz */
-
-.quote-text{
-    color:#d6d6d6;
-    font-size:14px;
-    line-height:1.7;
-    text-align:center;
-    opacity:0;
-
-    padding:20px;
-
-    transition:0.25s;
-}
-
-/* aktif olunca söz görünür */
-
-.quote-box.active .quote-text{
-    opacity:0.9;
-}
-
-/* tıkla */
-
-.quote-btn{
-    position:absolute;
-
-    border:none;
-    background:rgba(0,140,255,0.15);
-    color:#8ecfff;
-
-    padding:6px 12px;
-    border-radius:10px;
-
-    cursor:pointer;
-    font-size:12px;
-
-    transition:0.25s;
-}
-
-.quote-btn:hover{
-    background:rgba(0,140,255,0.3);
-    transform:scale(1.05);
-}
-
-/* büyüyünce köşeye geç */
-
-.quote-box.active .quote-btn{
-    bottom:10px;
-    right:10px;
-}
-
 /* animasyon */
 
 @keyframes slideLeft{
@@ -311,18 +242,12 @@ body::after{
     .idol-popup{
         width:260px;
     }
-
-    .quote-box.active{
-        width:220px;
-    }
 }
 
 </style>
 </head>
 
 <body>
-
-<!-- HAKKIMDA -->
 
 <button class="about-btn" onclick="openPopup()">☰ Hakkımda</button>
 
@@ -337,20 +262,6 @@ body::after{
     <p><strong>Kilo:</strong> 70</p>
 
     <button class="close-btn" onclick="closePopup()">Kapat</button>
-
-</div>
-
-<!-- SÖZ KUTUSU -->
-
-<div class="quote-box">
-
-    <div class="quote-text" id="quoteText">
-        ...
-    </div>
-
-    <button class="quote-btn" onclick="changeQuote()">
-        tıkla
-    </button>
 
 </div>
 
@@ -373,14 +284,12 @@ body::after{
 
 </div>
 
-<!-- ANA İÇERİK -->
-
 <div class="container">
 
     <h1 class="name">YAŞAR NUH DONMA</h1>
 
     <p class="bio">
-        Vücut Geliştirme - Dümenden BOX - CS2 Player
+        Vücut Geliştirme  -  Dümenden BOX  -  CS2 Player
     </p>
 
     <a class="link-btn" href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu" target="_blank">
@@ -417,50 +326,6 @@ function openIdolPopup(){
 
 function closeIdolPopup(){
     document.getElementById("idolPopup").style.display = "none";
-}
-
-/* sözler */
-
-const quotes = [
-
-"bazen ayrılık istenmezken kaçınılmaz hale geliyor.",
-
-"it was all my fault.",
-
-"yapmasaydın...",
-
-"ne yapmam gerektiğini bilmiyorum.",
-
-"en büyük ceza bir şeyin anı olmasıdır.",
-
-"sahte dünya'da tek gerçek para.",
-
-"Eğer Tanrıysan ne olur yardım et."
-
-];
-
-let currentQuote = 0;
-let opened = false;
-
-function changeQuote(){
-
-    const box =
-    document.querySelector(".quote-box");
-
-    if(!opened){
-
-        box.classList.add("active");
-        opened = true;
-    }
-
-    document.getElementById("quoteText")
-    .innerText = quotes[currentQuote];
-
-    currentQuote++;
-
-    if(currentQuote >= quotes.length){
-        currentQuote = 0;
-    }
 }
 
 </script>
