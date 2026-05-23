@@ -212,15 +212,30 @@ body::after{
     position:absolute;
     top:20px;
     right:20px;
-    width:260px;
-    height:120px;
-    padding:20px;
-    border-radius:18px;
+
+    width:90px;
+    height:45px;
+
+    border-radius:14px;
     background:rgba(255,255,255,0.07);
     backdrop-filter:blur(12px);
     border:1px solid rgba(255,255,255,0.08);
+
     z-index:5;
     overflow:hidden;
+
+    transition:0.35s ease;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* büyüyünce */
+
+.quote-box.active{
+    width:260px;
+    height:120px;
 }
 
 /* söz */
@@ -230,30 +245,47 @@ body::after{
     font-size:14px;
     line-height:1.7;
     text-align:center;
-    margin-top:15px;
-    opacity:0.85;
+    opacity:0;
+
+    padding:20px;
+
     transition:0.25s;
+}
+
+/* aktif olunca söz görünür */
+
+.quote-box.active .quote-text{
+    opacity:0.9;
 }
 
 /* tıkla */
 
 .quote-btn{
     position:absolute;
-    bottom:10px;
-    right:10px;
+
     border:none;
     background:rgba(0,140,255,0.15);
     color:#8ecfff;
+
     padding:6px 12px;
     border-radius:10px;
+
     cursor:pointer;
     font-size:12px;
+
     transition:0.25s;
 }
 
 .quote-btn:hover{
     background:rgba(0,140,255,0.3);
     transform:scale(1.05);
+}
+
+/* büyüyünce köşeye geç */
+
+.quote-box.active .quote-btn{
+    bottom:10px;
+    right:10px;
 }
 
 /* animasyon */
@@ -280,7 +312,7 @@ body::after{
         width:260px;
     }
 
-    .quote-box{
+    .quote-box.active{
         width:220px;
     }
 }
@@ -348,7 +380,7 @@ body::after{
     <h1 class="name">YAŞAR NUH DONMA</h1>
 
     <p class="bio">
-        Vücut Geliştirme  -  Dümenden BOX  -  CS2 Player
+        Vücut Geliştirme - Dümenden BOX - CS2 Player
     </p>
 
     <a class="link-btn" href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu" target="_blank">
@@ -408,8 +440,18 @@ const quotes = [
 ];
 
 let currentQuote = 0;
+let opened = false;
 
 function changeQuote(){
+
+    const box =
+    document.querySelector(".quote-box");
+
+    if(!opened){
+
+        box.classList.add("active");
+        opened = true;
+    }
 
     document.getElementById("quoteText")
     .innerText = quotes[currentQuote];
