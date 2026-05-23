@@ -123,10 +123,12 @@ body::after{
     color:white;
     cursor:pointer;
     z-index:5;
+    transition:0.25s;
 }
 
 .about-btn:hover{
     background:rgba(255,255,255,0.14);
+    transform:scale(1.05);
 }
 
 /* popup */
@@ -142,6 +144,8 @@ body::after{
     color:white;
     display:none;
     z-index:10;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 0 25px rgba(255,255,255,0.05);
 }
 
 .popup p{
@@ -157,11 +161,86 @@ body::after{
     background:#222;
     color:white;
     cursor:pointer;
+    transition:0.25s;
+}
+
+.close-btn:hover{
+    background:#333;
+}
+
+/* idollerim buton */
+
+.idol-btn{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    padding:12px 18px;
+    border:none;
+    border-radius:14px;
+    background:rgba(0,140,255,0.12);
+    color:white;
+    cursor:pointer;
+    z-index:5;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 15px rgba(0,140,255,0.25);
+    transition:0.25s;
+}
+
+.idol-btn:hover{
+    transform:scale(1.05);
+    background:rgba(0,140,255,0.22);
+}
+
+/* idol popup */
+
+.idol-popup{
+    position:absolute;
+    bottom:80px;
+    right:20px;
+    width:300px;
+    padding:22px;
+    border-radius:20px;
+    background:rgba(10,10,10,0.94);
+    color:white;
+    display:none;
+    z-index:10;
+    border:1px solid rgba(0,140,255,0.25);
+    box-shadow:0 0 25px rgba(0,140,255,0.15);
+    animation:slideLeft 0.25s ease;
+}
+
+.idol-popup h2{
+    margin-bottom:12px;
+    color:#4db8ff;
+}
+
+.idol-popup p{
+    color:#d0d0d0;
+    line-height:1.8;
+}
+
+/* animasyon */
+
+@keyframes slideLeft{
+    from{
+        opacity:0;
+        transform:translateX(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
 }
 
 @media(max-width:500px){
+
     .link-btn{
         width:280px;
+    }
+
+    .idol-popup{
+        width:260px;
     }
 }
 
@@ -186,11 +265,32 @@ body::after{
 
 </div>
 
+<!-- İDOLLER -->
+
+<button class="idol-btn" onclick="openIdolPopup()">★ İdollerim</button>
+
+<div class="idol-popup" id="idolPopup">
+
+    <h2>İdollerim</h2>
+
+    <p>
+        • M.Kemal Atatürk <br>
+        • Messi <br>
+        • Xantares <br>
+        • İmorr
+    </p>
+
+    <button class="close-btn" onclick="closeIdolPopup()">Kapat</button>
+
+</div>
+
 <div class="container">
 
-
     <h1 class="name">YAŞAR NUH DONMA</h1>
-    <p class="bio">Vücut Geliştirme  -  Dümenden BOX  -  CS2 Player</p>
+
+    <p class="bio">
+        Vücut Geliştirme  -  Dümenden BOX  -  CS2 Player
+    </p>
 
     <a class="link-btn" href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu" target="_blank">
         🎵 Spotify
@@ -218,6 +318,14 @@ function openPopup(){
 
 function closePopup(){
     document.getElementById("popup").style.display = "none";
+}
+
+function openIdolPopup(){
+    document.getElementById("idolPopup").style.display = "block";
+}
+
+function closeIdolPopup(){
+    document.getElementById("idolPopup").style.display = "none";
 }
 
 </script>
