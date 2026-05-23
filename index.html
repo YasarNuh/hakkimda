@@ -213,27 +213,47 @@ body::after{
     top:20px;
     right:20px;
     width:260px;
-    min-height:90px;
-    padding:18px;
+    height:120px;
+    padding:20px;
     border-radius:18px;
     background:rgba(255,255,255,0.07);
-    color:#dcdcdc;
     backdrop-filter:blur(12px);
-    cursor:pointer;
-    z-index:5;
-    transition:0.3s;
     border:1px solid rgba(255,255,255,0.08);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    line-height:1.6;
-    font-size:14px;
+    z-index:5;
+    overflow:hidden;
 }
 
-.quote-box:hover{
-    transform:scale(1.03);
-    background:rgba(255,255,255,0.11);
+/* söz */
+
+.quote-text{
+    color:#d6d6d6;
+    font-size:14px;
+    line-height:1.7;
+    text-align:center;
+    margin-top:15px;
+    opacity:0.85;
+    transition:0.25s;
+}
+
+/* tıkla */
+
+.quote-btn{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    border:none;
+    background:rgba(0,140,255,0.15);
+    color:#8ecfff;
+    padding:6px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:12px;
+    transition:0.25s;
+}
+
+.quote-btn:hover{
+    background:rgba(0,140,255,0.3);
+    transform:scale(1.05);
 }
 
 /* animasyon */
@@ -262,7 +282,6 @@ body::after{
 
     .quote-box{
         width:220px;
-        font-size:13px;
     }
 }
 
@@ -291,8 +310,16 @@ body::after{
 
 <!-- SÖZ KUTUSU -->
 
-<div class="quote-box" onclick="changeQuote()" id="quoteBox">
-    “bazen ayrılık istenmezken kaçınılmaz hale geliyor.”
+<div class="quote-box">
+
+    <div class="quote-text" id="quoteText">
+        ...
+    </div>
+
+    <button class="quote-btn" onclick="changeQuote()">
+        tıkla
+    </button>
+
 </div>
 
 <!-- İDOLLER -->
@@ -380,12 +407,18 @@ const quotes = [
 
 ];
 
+let currentQuote = 0;
+
 function changeQuote(){
 
-    const random =
-    quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quoteText")
+    .innerText = quotes[currentQuote];
 
-    document.getElementById("quoteBox").innerText = random;
+    currentQuote++;
+
+    if(currentQuote >= quotes.length){
+        currentQuote = 0;
+    }
 }
 
 </script>
