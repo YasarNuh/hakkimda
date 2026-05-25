@@ -110,6 +110,112 @@ body::after{
     background:rgba(255,255,255,0.14);
 }
 
+/* TAKIMLAR */
+
+.teams{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:10px;
+    width:100%;
+    align-items:center;
+}
+
+.team{
+    width:320px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    padding:16px 20px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.25s;
+}
+
+.team:hover{
+    transform:scale(1.04);
+}
+
+/* LOGOLAR */
+
+.team img{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+/* FENERBAHÇE */
+
+.fb-text{
+    color:#ffe600;
+    font-size:28px;
+    letter-spacing:2px;
+
+    -webkit-text-stroke:1px #001b70;
+
+    text-shadow:
+    0 0 8px #001b70,
+    0 0 16px #001b70,
+    0 0 24px #001b70;
+}
+
+.team:nth-child(1) img{
+    box-shadow:
+    0 0 12px #ffe600,
+    0 0 24px #001b70;
+}
+
+/* AURORA */
+
+.aurora-text{
+    color:#3ba7ff;
+    font-size:28px;
+    letter-spacing:2px;
+
+    -webkit-text-stroke:1px #000;
+
+    text-shadow:
+    0 0 8px #000,
+    0 0 16px #000,
+    0 0 24px #3ba7ff;
+}
+
+.team:nth-child(2) img{
+    box-shadow:
+    0 0 12px #3ba7ff,
+    0 0 24px #000;
+}
+
+/* ETHERNAL FIRE */
+
+.ef-text{
+    color:#ff6200;
+    font-size:25px;
+    letter-spacing:2px;
+
+    -webkit-text-stroke:1px #ff0000;
+
+    text-shadow:
+    0 0 8px #ff0000,
+    0 0 18px #ff6200,
+    0 0 28px #ff0000;
+}
+
+.team:nth-child(3) img{
+    box-shadow:
+    0 0 12px #ff6200,
+    0 0 24px #ff0000;
+}
+
 /* hakkımda */
 
 .about-btn{
@@ -226,7 +332,6 @@ body::after{
         opacity:0;
         transform:translateX(30px);
     }
-
     to{
         opacity:1;
         transform:translateX(0);
@@ -236,6 +341,10 @@ body::after{
 @media(max-width:500px){
 
     .link-btn{
+        width:280px;
+    }
+
+    .team{
         width:280px;
     }
 
@@ -252,7 +361,6 @@ body::after{
 <button class="about-btn" onclick="openPopup()">☰ Hakkımda</button>
 
 <div class="popup" id="popup">
-
     <h2>Hakkımda</h2>
 
     <p><strong>İsmim:</strong> Yaşar Nuh Donma</p>
@@ -262,7 +370,6 @@ body::after{
     <p><strong>Kilom:</strong> 70</p>
 
     <button class="close-btn" onclick="closePopup()">Kapat</button>
-
 </div>
 
 <!-- İDOLLER -->
@@ -270,22 +377,19 @@ body::after{
 <button class="idol-btn" onclick="openIdolPopup()">★ Örnek Aldıklarım</button>
 
 <div class="idol-popup" id="idolPopup">
-
     <h2>Örnek Aldıklarım</h2>
 
     <p>
         • M.Kemal Atatürk <br>
         • Messi <br>
         • Xantares <br>
-        • Ben Whitetaker <br>
+        • Ben Whittaker <br>
         • Tank Davis <br>
         • Ege Fitness <br>
         • Yakup TV <br>
-        
     </p>
 
     <button class="close-btn" onclick="closeIdolPopup()">Kapat</button>
-
 </div>
 
 <div class="container">
@@ -293,7 +397,7 @@ body::after{
     <h1 class="name">YAŞAR NUH DONMA</h1>
 
     <p class="bio">
-       O gece uyumak için doktordan yardım istedim.
+        O gece uyumak için doktordan yardım istedim.
     </p>
 
     <a class="link-btn" href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu" target="_blank">
@@ -311,6 +415,27 @@ body::after{
     <a class="link-btn" href="https://x.com/donma_nuh20630" target="_blank">
         🐦 Twitter
     </a>
+
+    <!-- TAKIMLAR -->
+
+    <div class="teams">
+
+        <div class="team">
+            <img src="fenerbahce.png" alt="Fenerbahçe">
+            <h2 class="fb-text">FENERBAHÇE</h2>
+        </div>
+
+        <div class="team">
+            <img src="aurora.png" alt="Aurora">
+            <h2 class="aurora-text">AURORA</h2>
+        </div>
+
+        <div class="team">
+            <img src="ethernalfire.png" alt="Ethernal Fire">
+            <h2 class="ef-text">ETHERNAL FIRE</h2>
+        </div>
+
+    </div>
 
 </div>
 
