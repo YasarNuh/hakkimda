@@ -110,111 +110,145 @@ body::after{
     background:rgba(255,255,255,0.14);
 }
 
-/* TAKIMLAR */
+/* ÜST TAKIMLAR */
 
-.teams{
+.top-teams{
+    position:absolute;
+    top:20px;
+
     display:flex;
     flex-direction:column;
-    gap:18px;
-    margin-top:10px;
-    width:100%;
     align-items:center;
+
+    gap:10px;
+
+    z-index:2;
 }
 
-.team{
-    width:320px;
+/* ORTAK */
+
+.top-team{
     display:flex;
     align-items:center;
     gap:18px;
 
-    padding:16px 20px;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,0.05);
-
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    transition:0.25s;
+    transition:0.3s;
 }
 
-.team:hover{
+.top-team img{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+
+    transition:0.3s;
+}
+
+.top-team h1{
+    font-size:70px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+/* HOVER */
+
+.top-team:hover{
     transform:scale(1.04);
-}
-
-/* LOGOLAR */
-
-.team img{
-    width:65px;
-    height:65px;
-    object-fit:cover;
-    border-radius:50%;
 }
 
 /* FENERBAHÇE */
 
-.fb-text{
+.fb-team h1{
     color:#ffe600;
-    font-size:28px;
-    letter-spacing:2px;
 
-    -webkit-text-stroke:1px #001b70;
+    -webkit-text-stroke:4px #002b7f;
 
     text-shadow:
-    0 0 8px #001b70,
-    0 0 16px #001b70,
-    0 0 24px #001b70;
+    0 0 10px #002b7f,
+    0 0 20px #002b7f,
+    0 0 35px #002b7f;
 }
 
-.team:nth-child(1) img{
-    box-shadow:
-    0 0 12px #ffe600,
-    0 0 24px #001b70;
+.fb-team:hover img{
+    filter:
+    drop-shadow(0 0 15px #ffe600)
+    drop-shadow(0 0 35px #002b7f);
 }
 
 /* AURORA */
 
-.aurora-text{
-    color:#3ba7ff;
-    font-size:28px;
-    letter-spacing:2px;
+.aurora-team h1{
+    color:#20a4ff;
 
-    -webkit-text-stroke:1px #000;
+    -webkit-text-stroke:4px #00111f;
 
     text-shadow:
-    0 0 8px #000,
-    0 0 16px #000,
-    0 0 24px #3ba7ff;
+    0 0 10px #20a4ff,
+    0 0 20px #20a4ff,
+    0 0 35px #00111f;
 }
 
-.team:nth-child(2) img{
-    box-shadow:
-    0 0 12px #3ba7ff,
-    0 0 24px #000;
+.aurora-team:hover img{
+    filter:
+    drop-shadow(0 0 15px #20a4ff)
+    drop-shadow(0 0 35px #00111f);
 }
 
 /* ETHERNAL FIRE */
 
-.ef-text{
-    color:#ff6200;
-    font-size:25px;
-    letter-spacing:2px;
+.ef-team h1{
+    color:#ff9d00;
 
-    -webkit-text-stroke:1px #ff0000;
+    -webkit-text-stroke:4px #ff3c00;
 
     text-shadow:
-    0 0 8px #ff0000,
-    0 0 18px #ff6200,
-    0 0 28px #ff0000;
+    0 0 10px #ff3c00,
+    0 0 20px #ff9d00,
+    0 0 35px #ff3c00;
 }
 
-.team:nth-child(3) img{
-    box-shadow:
-    0 0 12px #ff6200,
-    0 0 24px #ff0000;
+.ef-team:hover img{
+    filter:
+    drop-shadow(0 0 15px #ff9d00)
+    drop-shadow(0 0 35px #ff3c00);
 }
+
+/* MOBİL */
+
+@media(max-width:900px){
+
+    .top-team h1{
+        font-size:40px;
+    }
+
+    .top-team img{
+        width:70px;
+        height:70px;
+    }
+
+    .top-teams{
+        top:10px;
+    }
+
+<!-- TAKIMLAR -->
+
+<div class="top-teams">
+
+    <div class="top-team fb-team">
+        <img src="fenerbahce.png" alt="Fenerbahçe">
+        <h1>FENERBAHÇE</h1>
+    </div>
+
+    <div class="top-team aurora-team">
+        <img src="aurora.png" alt="Aurora">
+        <h1>AURORA</h1>
+    </div>
+
+    <div class="top-team ef-team">
+        <img src="ethernalfire.png" alt="Ethernal Fire">
+        <h1>ETHERNAL FIRE</h1>
+    </div>
+
+</div>
 
 /* hakkımda */
 
