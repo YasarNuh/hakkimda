@@ -8,6 +8,7 @@
 
 <style>
 
+/* RESET */
 *{
     margin:0;
     padding:0;
@@ -25,8 +26,7 @@ body{
     position:relative;
 }
 
-/* arka plan glow */
-
+/* ARKA PLAN GLOW */
 body::before{
     content:"";
     position:absolute;
@@ -51,8 +51,7 @@ body::after{
     right:-150px;
 }
 
-/* container */
-
+/* CONTAINER */
 .container{
     position:relative;
     z-index:2;
@@ -62,8 +61,7 @@ body::after{
     gap:18px;
 }
 
-/* profil resim */
-
+/* PROFİL */
 .profile-img{
     width:120px;
     height:120px;
@@ -73,8 +71,7 @@ body::after{
     box-shadow:0 0 25px rgba(0,140,255,0.4);
 }
 
-/* isim */
-
+/* İSİM */
 .name{
     color:white;
     font-size:32px;
@@ -82,15 +79,13 @@ body::after{
     text-align:center;
 }
 
-/* bio */
-
+/* BIO */
 .bio{
     color:#bdbdbd;
     margin-top:-10px;
 }
 
-/* link buton */
-
+/* LINK BUTON */
 .link-btn{
     width:320px;
     padding:18px;
@@ -110,148 +105,7 @@ body::after{
     background:rgba(255,255,255,0.14);
 }
 
-/* ÜST TAKIMLAR */
-
-.top-teams{
-    position:absolute;
-    top:20px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    gap:10px;
-
-    z-index:2;
-}
-
-/* ORTAK */
-
-.top-team{
-    display:flex;
-    align-items:center;
-    gap:18px;
-
-    transition:0.3s;
-}
-
-.top-team img{
-    width:110px;
-    height:110px;
-    object-fit:contain;
-
-    transition:0.3s;
-}
-
-.top-team h1{
-    font-size:70px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-/* HOVER */
-
-.top-team:hover{
-    transform:scale(1.04);
-}
-
-/* FENERBAHÇE */
-
-.fb-team h1{
-    color:#ffe600;
-
-    -webkit-text-stroke:4px #002b7f;
-
-    text-shadow:
-    0 0 10px #002b7f,
-    0 0 20px #002b7f,
-    0 0 35px #002b7f;
-}
-
-.fb-team:hover img{
-    filter:
-    drop-shadow(0 0 15px #ffe600)
-    drop-shadow(0 0 35px #002b7f);
-}
-
-/* AURORA */
-
-.aurora-team h1{
-    color:#20a4ff;
-
-    -webkit-text-stroke:4px #00111f;
-
-    text-shadow:
-    0 0 10px #20a4ff,
-    0 0 20px #20a4ff,
-    0 0 35px #00111f;
-}
-
-.aurora-team:hover img{
-    filter:
-    drop-shadow(0 0 15px #20a4ff)
-    drop-shadow(0 0 35px #00111f);
-}
-
-/* ETHERNAL FIRE */
-
-.ef-team h1{
-    color:#ff9d00;
-
-    -webkit-text-stroke:4px #ff3c00;
-
-    text-shadow:
-    0 0 10px #ff3c00,
-    0 0 20px #ff9d00,
-    0 0 35px #ff3c00;
-}
-
-.ef-team:hover img{
-    filter:
-    drop-shadow(0 0 15px #ff9d00)
-    drop-shadow(0 0 35px #ff3c00);
-}
-
-/* MOBİL */
-
-@media(max-width:900px){
-
-    .top-team h1{
-        font-size:40px;
-    }
-
-    .top-team img{
-        width:70px;
-        height:70px;
-    }
-
-    .top-teams{
-        top:10px;
-    }
-
-<!-- TAKIMLAR -->
-
-<div class="top-teams">
-
-    <div class="top-team fb-team">
-        <img src="fenerbahce.png" alt="Fenerbahçe">
-        <h1>FENERBAHÇE</h1>
-    </div>
-
-    <div class="top-team aurora-team">
-        <img src="aurora.png" alt="Aurora">
-        <h1>AURORA</h1>
-    </div>
-
-    <div class="top-team ef-team">
-        <img src="ethernalfire.png" alt="Ethernal Fire">
-        <h1>ETHERNAL FIRE</h1>
-    </div>
-
-</div>
-
-/* hakkımda */
-
+/* HAKKIMDA BUTON */
 .about-btn{
     position:absolute;
     top:20px;
@@ -271,8 +125,7 @@ body::after{
     transform:scale(1.05);
 }
 
-/* popup */
-
+/* POPUP */
 .popup{
     position:absolute;
     top:80px;
@@ -308,8 +161,7 @@ body::after{
     background:#333;
 }
 
-/* idollerim buton */
-
+/* IDOL BUTON */
 .idol-btn{
     position:absolute;
     bottom:20px;
@@ -331,8 +183,7 @@ body::after{
     background:rgba(0,140,255,0.22);
 }
 
-/* idol popup */
-
+/* IDOL POPUP */
 .idol-popup{
     position:absolute;
     bottom:80px;
@@ -359,8 +210,7 @@ body::after{
     line-height:1.8;
 }
 
-/* animasyon */
-
+/* ANİMASYON */
 @keyframes slideLeft{
     from{
         opacity:0;
@@ -372,13 +222,9 @@ body::after{
     }
 }
 
+/* RESPONSIVE */
 @media(max-width:500px){
-
     .link-btn{
-        width:280px;
-    }
-
-    .team{
         width:280px;
     }
 
@@ -395,6 +241,7 @@ body::after{
 <button class="about-btn" onclick="openPopup()">☰ Hakkımda</button>
 
 <div class="popup" id="popup">
+
     <h2>Hakkımda</h2>
 
     <p><strong>İsmim:</strong> Yaşar Nuh Donma</p>
@@ -404,34 +251,37 @@ body::after{
     <p><strong>Kilom:</strong> 70</p>
 
     <button class="close-btn" onclick="closePopup()">Kapat</button>
+
 </div>
 
-<!-- İDOLLER -->
-
-<button class="idol-btn" onclick="openIdolPopup()">★ Örnek Aldıklarım</button>
+<!-- IDOLLER -->
+<button class="idol-btn" onclick="openIdolPopup()">★ Örnek Aldığım kişiler</button>
 
 <div class="idol-popup" id="idolPopup">
+
     <h2>Örnek Aldıklarım</h2>
 
     <p>
         • M.Kemal Atatürk <br>
         • Messi <br>
         • Xantares <br>
-        • Ben Whittaker <br>
+        • Ben Whitetaker <br>
         • Tank Davis <br>
         • Ege Fitness <br>
         • Yakup TV <br>
     </p>
 
     <button class="close-btn" onclick="closeIdolPopup()">Kapat</button>
+
 </div>
 
+<!-- MAIN -->
 <div class="container">
 
     <h1 class="name">YAŞAR NUH DONMA</h1>
 
     <p class="bio">
-        
+        O gece uyumak için doktordan yardım istedim.
     </p>
 
     <a class="link-btn" href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu" target="_blank">
@@ -449,27 +299,6 @@ body::after{
     <a class="link-btn" href="https://x.com/donma_nuh20630" target="_blank">
         🐦 Twitter
     </a>
-
-    <!-- TAKIMLAR -->
-
-    <div class="teams">
-
-        <div class="team">
-            <img src="fenerbahce.png" alt="Fenerbahçe">
-            <h2 class="fb-text">FENERBAHÇE</h2>
-        </div>
-
-        <div class="team">
-            <img src="aurora.png" alt="Aurora">
-            <h2 class="aurora-text">AURORA</h2>
-        </div>
-
-        <div class="team">
-            <img src="ethernalfire.png" alt="Ethernal Fire">
-            <h2 class="ef-text">ETHERNAL FIRE</h2>
-        </div>
-
-    </div>
 
 </div>
 
