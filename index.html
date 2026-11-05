@@ -32,7 +32,7 @@ body::before {
     position: fixed;
     width: 500px;
     height: 500px;
-    background: rgba(0,140,255,0.05);
+    background: rgba(14, 0, 212, 0.678);
     border-radius: 50%;
     filter: blur(120px);
     top: -150px;
@@ -46,9 +46,9 @@ body::after {
     position: fixed;
     width: 450px;
     height: 450px;
-    background: black;
+    background: rgb(211, 226, 0);
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(160px);
     bottom: -150px;
     right: -150px;
     pointer-events: none;
@@ -68,10 +68,20 @@ body::after {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: hsla(204,100%,80%,0.95);
-    box-shadow: 0 0 18px hsla(204,100%,85%,0.75);
     opacity: 0;
     animation: twinkle 3.5s ease-in-out infinite;
+}
+
+/* SARI PARILTILAR */
+.sparkle:nth-child(odd) {
+    background: #FFD700;
+    box-shadow: 0 0 18px #FFD700;
+}
+
+/* LACİVERT PARILTILAR */
+.sparkle:nth-child(even) {
+    background: #000399;
+    box-shadow: 0 0 18px #193A78;
 }
 
 .sparkle-1 {top:12%;left:10%;animation-delay:0s;}
@@ -161,47 +171,86 @@ body::after {
     background: rgba(255,255,255,0.14);
 }
 
-/* HAKKIMDA BUTON */
-.about-btn {
+/* ORTAK BUTON TASARIMI */
+.about-btn,
+.idol-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
     padding: 12px 18px;
     border: none;
     border-radius: 14px;
-    background: rgba(255,255,255,0.08);
+    background: rgb(0, 17, 168);
     color: white;
     cursor: pointer;
     z-index: 5;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(0,140,255,0.25);
     transition: 0.25s;
 }
+.about-btn {
+    background: linear-gradient(135deg, #FFD700, #E5A900);
+    color: #111;
+    border: 1px solid #0016e0;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
 
-.about-btn:hover {
-    background: rgba(255,255,255,0.14);
+.about-btn {
+    top: 20px;
+    left: 20px;
+}
+
+.idol-btn {
+    bottom: 20px;
+    right: 20px;
+}
+
+.about-btn:hover,
+.idol-btn:hover {
     transform: scale(1.05);
+    background: rgba(0,140,255,0.22);
+}
+
+/* ORTAK POPUP TASARIMI */
+.popup,
+.idol-popup {
+    position: fixed;
+    width: 300px;
+    padding: 22px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.96);
+    color: white;
+    display: none;
+    z-index: 10;
+    border: 1px solid rgba(0,140,255,0.25);
+    box-shadow: 0 0 25px rgba(0,140,255,0.15);
+    animation: slideLeft 0.25s ease;
 }
 
 /* HAKKIMDA POPUP */
 .popup {
-    position: fixed;
     top: 80px;
     left: 20px;
-    width: 280px;
-    padding: 22px;
-    border-radius: 20px;
-    background: rgba(10,10,10,0.95);
-    color: white;
-    display: none;
-    z-index: 10;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 0 25px rgba(255,255,255,0.05);
 }
 
+/* FAVORİ PARÇALAR POPUP */
+.idol-popup {
+    bottom: 80px;
+    right: 20px;
+}
+
+/* POPUP BAŞLIKLARI */
+.popup h2,
+.idol-popup h2 {
+    margin-bottom: 12px;
+    color: #4db8ff;
+}
+
+/* HAKKIMDA YAZILARI */
 .popup p {
     margin: 10px 0;
     color: #ccc;
 }
 
+/* KAPAT BUTONU */
 .close-btn {
     margin-top: 15px;
     padding: 8px 14px;
@@ -215,50 +264,6 @@ body::after {
 
 .close-btn:hover {
     background: #333;
-}
-
-/* FAVORİ PARÇALAR BUTON */
-.idol-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 14px;
-    background: rgba(0,140,255,0.12);
-    color: white;
-    cursor: pointer;
-    z-index: 5;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 15px rgba(0,140,255,0.25);
-    transition: 0.25s;
-}
-
-.idol-btn:hover {
-    transform: scale(1.05);
-    background: rgba(0,140,255,0.22);
-}
-
-/* FAVORİ PARÇALAR POPUP */
-.idol-popup {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 300px;
-    padding: 22px;
-    border-radius: 20px;
-    background: rgba(10,10,10,0.96);
-    color: white;
-    display: none;
-    z-index: 10;
-    border: 1px solid rgba(0,140,255,0.25);
-    box-shadow: 0 0 25px rgba(0,140,255,0.15);
-    animation: slideLeft 0.25s ease;
-}
-
-.idol-popup h2 {
-    margin-bottom: 12px;
-    color: #4db8ff;
 }
 
 /* ŞARKI */
@@ -347,11 +352,13 @@ body::after {
 
 /* RESPONSIVE */
 @media(max-width:500px) {
+
     .link-btn {
         width: 280px;
     }
 
-    .idol-popup {
+    .idol-popup,
+    .popup {
         width: 260px;
     }
 
@@ -409,35 +416,39 @@ body::after {
     )">
         🎵 Mavi - No BV’s Freestyle
     </div>
-    <div class="song" onclick="openMusic(
-    'Wegh - Geri Ver',
-    'https://open.spotify.com/intl-tr/track/6fCS2Zg9OKiWh51TbFFWXG?si=d20703411c7b4eae',
-    'https://music.youtube.com/watch?v=vHD83B_iTZM&si=iyOXg0rOY2lSu8sR'
-)">
-    🎵 Wegh - Geri Ver
-    </div>
-    <div class="song" onclick="openMusic(
-    'Sagopa Kajmer - Nedense',
-    'https://open.spotify.com/intl-tr/track/7wFdyYbKzqu0ZQAqWoa65W?si=acdb9e63bebf464a',
-    'https://music.youtube.com/watch?v=M44l6onx0rI&si=Xu13ov1J2clU1HLw'
-)">
-    🎵 Sagopa Kajmer - Nedense
-    </div>
-    <div class="song" onclick="openMusic(
-    'Sagopa Kajmer , Kolera - Soğuk Küvet',
-    'https://open.spotify.com/episode/1QtWcNHbrjo7EANFqQouYc?si=77dc2f4c4cf542cf',
-    'https://music.youtube.com/watch?v=g_x91qIoRak&si=9gzm19rMBQxzdg6Q'
-)">
-    🎵 Sagopa Kajmer , Kolera - Soğuk Küvet
-    </div>
-    <div class="song" onclick="openMusic(
-    'Sansar Salvo - Dışarda Kaybolmuş',
-    'https://open.spotify.com/intl-tr/track/3nWXdmuEBRYSXA6EIhchAf?si=04b80b0daeae4297',
-    'https://music.youtube.com/watch?v=PwllW-SHYb4&si=3cGQq58J3XZwwbA-'
-)">
-    🎵 Sansar Salvo - Dışarda Kaybolmuş
 
-</div>
+    <div class="song" onclick="openMusic(
+        'Wegh - Geri Ver',
+        'https://open.spotify.com/intl-tr/track/6fCS2Zg9OKiWh51TbFFWXG?si=d20703411c7b4eae',
+        'https://music.youtube.com/watch?v=vHD83B_iTZM&si=iyOXg0rOY2lSu8sR'
+    )">
+        🎵 Wegh - Geri Ver
+    </div>
+
+    <div class="song" onclick="openMusic(
+        'Sagopa Kajmer - Nedense',
+        'https://open.spotify.com/intl-tr/track/7wFdyYbKzqu0ZQAqWoa65W?si=acdb9e63bebf464a',
+        'https://music.youtube.com/watch?v=M44l6onx0rI&si=Xu13ov1J2clU1HLw'
+    )">
+        🎵 Sagopa Kajmer - Nedense
+    </div>
+
+    <div class="song" onclick="openMusic(
+        'Sagopa Kajmer , Kolera - Soğuk Küvet',
+        'https://open.spotify.com/episode/1QtWcNHbrjo7EANFqQouYc?si=77dc2f4c4cf542cf',
+        'https://music.youtube.com/watch?v=g_x91qIoRak&si=9gzm19rMBQxzdg6Q'
+    )">
+        🎵 Sagopa Kajmer , Kolera - Soğuk Küvet
+    </div>
+
+    <div class="song" onclick="openMusic(
+        'Sansar Salvo - Dışarda Kaybolmuş',
+        'https://open.spotify.com/intl-tr/track/3nWXdmuEBRYSXA6EIhchAf?si=04b80b0daeae4297',
+        'https://music.youtube.com/watch?v=PwllW-SHYb4&si=3cGQq58J3XZwwbA-'
+    )">
+        🎵 Sansar Salvo - Dışarda Kaybolmuş
+    </div>
+
     <button class="close-btn" onclick="closeIdolPopup()">Kapat</button>
 
 </div>
@@ -451,11 +462,13 @@ body::after {
 
         <p>Hangi platformda dinlemek istersin?</p>
 
-        <a id="spotifyLink" class="music-option spotify" target="_blank" rel="noopener noreferrer">
+        <a id="spotifyLink" class="music-option spotify"
+           target="_blank" rel="noopener noreferrer">
             🟢 Spotify
         </a>
 
-        <a id="youtubeLink" class="music-option youtube" target="_blank" rel="noopener noreferrer">
+        <a id="youtubeLink" class="music-option youtube"
+           target="_blank" rel="noopener noreferrer">
             ▶ YouTube Music
         </a>
 
@@ -474,23 +487,33 @@ body::after {
         Herhangi bir adam...
     </p>
 
-    <a class="link-btn" href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu" target="_blank" rel="noopener noreferrer">
+    <a class="link-btn"
+       href="https://open.spotify.com/user/31m754rveers3rxlu5sh7qsgcmzu"
+       target="_blank" rel="noopener noreferrer">
         🎵 Spotify
     </a>
 
-    <a class="link-btn" href="https://music.youtube.com/@yasarnuh7571" target="_blank" rel="noopener noreferrer">
+    <a class="link-btn"
+       href="https://music.youtube.com/@yasarnuh7571"
+       target="_blank" rel="noopener noreferrer">
         🎵 YouTube Music
     </a>
 
-    <a class="link-btn" href="https://steamcommunity.com/profiles/76561199214229444" target="_blank" rel="noopener noreferrer">
+    <a class="link-btn"
+       href="https://steamcommunity.com/profiles/76561199214229444"
+       target="_blank" rel="noopener noreferrer">
         🎮 Steam
     </a>
 
-    <a class="link-btn" href="https://www.instagram.com/yasar_donma/" target="_blank" rel="noopener noreferrer">
+    <a class="link-btn"
+       href="https://www.instagram.com/yasar_donma/"
+       target="_blank" rel="noopener noreferrer">
         💣 Instagram (yan hesabım)
     </a>
 
-    <a class="link-btn" href="https://www.tiktok.com/@yasarnuhdonma?_r=1&_t=ZS-9B4DbxQs4Zw" target="_blank" rel="noopener noreferrer">
+    <a class="link-btn"
+       href="https://www.tiktok.com/@yasarnuhdonma?_r=1&_t=ZS-9B4DbxQs4Zw"
+       target="_blank" rel="noopener noreferrer">
         📱 TikTok
     </a>
 
@@ -526,13 +549,10 @@ function openMusic(name, spotify, youtube) {
     document.getElementById("youtubeLink").href = youtube;
 
     document.getElementById("musicModal").style.display = "flex";
-
 }
 
 function closeMusic() {
-
     document.getElementById("musicModal").style.display = "none";
-
 }
 
 /* ESC İLE PENCERELERİ KAPAT */
@@ -544,9 +564,7 @@ document.addEventListener("keydown", function(event) {
         closeIdolPopup();
     }
 
-}
-
-);
+});
 
 </script>
 
